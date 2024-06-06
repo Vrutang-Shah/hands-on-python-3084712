@@ -19,3 +19,13 @@ for i in range(5):
     print(i)
 
 # enumerate
+
+square_set = {x**2 for x in range(5) if x%2 == 0}
+print(square_set)
+
+
+Square_set1 = {x for x in range(5) if x%2 == 0}
+print(Square_set1)
+
+Square_set1 = {x**2 for x in range(5) if x%2 == 0}
+print(Square_set1)

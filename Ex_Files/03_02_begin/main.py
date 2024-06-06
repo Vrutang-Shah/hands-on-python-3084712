@@ -13,15 +13,34 @@ EINSTEIN = {
     "motivation": "for his services to Theoretical Physics...",
 }
 
-with open("laureates.csv", "r") as f:
-    reader = csv.DictReader(f)
+import os
+cwd = os.getcwd()
+
+input_path = os.path.join(cwd, r"Ex_Files/03_01_begin/laureates.csv")
+
+with open(input_path) as file:
+    reader = csv.DictReader(file)
     laureates = list(reader)
+
+# print(laureates)
 
 for laureate in laureates:
     if laureate["surname"] == "Einstein":
         pprint(laureate)
-        print("============")
-        year_date = datetime.strptime(laureate["year"], "%Y")
-        born_date = datetime.strptime(laureate["born"], "%Y-%m-%d")
-        print("age", year_date.year - born_date.year)
-        break
+        print("______________")
+        winning_year = datetime.strptime(laureate["year"], "%Y")
+        birth_year = datetime.strptime(laureate["born"], "%Y-%m-%d")
+        print(f"age = {winning_year.year - birth_year.year}")
+
+# with open("laureates.csv", "r") as f:
+#     reader = csv.DictReader(f)
+#     laureates = list(reader)
+
+# for laureate in laureates:
+#     if laureate["surname"] == "Einstein":
+#         pprint(laureate)
+#         print("============")
+#         year_date = datetime.strptime(laureate["year"], "%Y")
+#         born_date = datetime.strptime(laureate["born"], "%Y-%m-%d")
+#         print("age", year_date.year - born_date.year)
+#         break
